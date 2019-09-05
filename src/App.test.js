@@ -1,9 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react' 
 import App from './App';
+import Dashboard from './components/Dashboard';
+import Display from './components/Display';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+test('Renders App coponent without crashing', () => {
+	render(<App/>)
 });
+
+test("Dashboard renders to the page", () => {
+	const { getByText } = render(<Dashboard/>)
+	getByText(/STRIKE/)
+	getByText(/BALLS/)
+	getByText(/FOULS/)
+	getByText(/HITS/)
+
+	getByText(/Play Ball/)
+
+	getByText(/strike/)
+	getByText(/balls/)
+	getByText(/fouls/)
+	getByText(/hits/)
+})
+
+

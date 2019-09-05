@@ -29,10 +29,7 @@ class App extends React.Component{
 
 			case "foul":
 					if (this.state.strikes === 2){
-						this.setState({
-							strikes: 0, 
-							balls: 0, 
-						})
+						return null
 					} else {
 						this.setState({strikes: this.state.strikes + 1})
 					}
