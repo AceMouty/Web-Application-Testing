@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react' 
 import App from './App';
 import Dashboard from './components/Dashboard';
-import Display from './components/Display';
 
 test('Renders App coponent without crashing', () => {
 	render(<App/>)
@@ -14,13 +13,14 @@ test("Dashboard renders to the page", () => {
 	getByText(/BALLS/)
 	getByText(/FOULS/)
 	getByText(/HITS/)
+	getByText(/Play Ball!/)
+})
 
-	getByText(/Play Ball/)
-
-	getByText(/strike/)
-	getByText(/balls/)
-	getByText(/fouls/)
-	getByText(/hits/)
+test("Display renders to the page", () => {
+	const { getByText } = render(<App/>)
+	getByText(/Strikes/)
+	getByText(/Balls/)
+	getByText(/Hits/)
 })
 
 
